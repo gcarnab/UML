@@ -1,0 +1,111 @@
+@startuml TEST_SEQUENCE
+/' Sequence diagrams 
+with PlantUml '/
+
+'===== PARAMS ====='
+
+'skinparam responseMessageBelowArrow true
+'skinparam sequenceMessageAlign center
+'autonumber The keyword autonumber is used to automatically add an incrementing number to messages.
+
+/'
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+
+'/
+
+'====> Declaring participant
+/'
+participant Participant as Foo
+actor Actor as Foo1
+boundary Boundary as Foo2
+control Control as Foo3
+entity Entity as Foo4
+database Database as Foo5
+collections Collections as Foo6
+queue Queue as Foo7
+Foo -> Foo1 : To actor
+Foo -> Foo2 : To boundary
+Foo -> Foo3 : To control
+Foo -> Foo4 : To entity
+Foo -> Foo5 : To database
+Foo -> Foo6 : To collections
+Foo -> Foo7: To queue
+'/
+
+'====> Declaring participant Changing Styles
+/'actor Bob #red
+' The only difference between actor
+'and participant is the drawing
+participant Alice
+participant "I have a really\nlong name" as L #99FF99
+' You can also declare:
+'participant L as "I have a really\nlong name" #99FF99
+
+Alice->Bob: Authentication Request
+Bob->Alice: Authentication Response
+Bob->L: Log transaction
+'/
+
+'====> Declaring participant Customize Orders
+/'
+participant Last order 1
+participant Middle order 2
+participant First order 3 '/
+
+'====> Declaring participant on multiline
+
+/'
+participant Participant [
+=Title
+----
+""SubTitle""
+]
+participant Bob
+Participant -> Bob 
+
+'/
+
+'====> Use non-letters in participants
+
+/'
+Alice -> "Bob()" : Hello
+"Bob()" -> "This is very\nlong" as Long
+' You can also declare:
+' "Bob()" -> Long as "This is very\nlong"
+Long --> "Bob()" : ok
+
+'/
+ 
+'====> Message to Self
+
+'Alice -> Alice: This is a signal to self.\nIt also demonstrates\nmultiline \ntext
+
+'====> Change arrow style
+
+header Page Header
+footer Page %page% of %lastpage%
+title Example Title
+
+participant Bob
+participant Alice
+
+Bob -[#red]> Alice : hello
+Alice -[#0000FF]->Bob : ok
+Bob ->x Alice
+Bob -> Alice
+Bob ->> Alice
+Bob -\ Alice
+Bob \\- Alice
+Bob //-- Alice
+Bob ->o Alice
+Bob o\\-- Alice
+Bob <-> Alice
+Bob <->o Alice
+
+'====>  Splitting diagrams
+
+
+@enduml

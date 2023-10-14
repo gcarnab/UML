@@ -1,0 +1,44 @@
+@startuml TEST_CLASS
+/' Class Diagrams 
+with PlantUml '/
+
+'===== PARAMS ====='
+
+'====> Declaring element
+
+abstract abstract
+abstract class "abstract class"
+annotation annotation
+circle circle
+() circle_short_form
+class class
+class class_stereo <<stereotype>>
+diamond diamond
+
+
+'====> Relations between classes
+
+/'
+Class01 <|-- Class02
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 -- Class10
+
+'/
+
+'====> Label on relations
+/'
+Class01 "1" *-- "many" Class02 : contains
+Class03 o-- Class04 : aggregation
+Class05 --> "1" Class06
+'/
+
+'====> Adding methods
+/'
+Object <|-- ArrayList
+Object : equals()
+ArrayList : Object[] elementData
+ArrayList : size()
+'/
+@enduml
