@@ -1,0 +1,33 @@
+@startuml Rubrica
+left to right direction
+actor "User" as actorUser #Black
+rectangle Client {
+    usecase "Search User" as C_UC1 #YellowGreen
+    usecase "Create User" as C_UC2 #YellowGreen
+    usecase "Read User" as C_UC3 #YellowGreen
+    usecase "Delete User" as C_UC4 #YellowGreen
+}
+
+actorUser --> C_UC1
+actorUser --> C_UC2
+actorUser --> C_UC3
+actorUser --> C_UC4
+
+rectangle Server {
+    usecase "Search" as S_UC1 #GreenYellow
+    usecase "Create" as S_UC2 #GreenYellow
+    usecase "Read" as S_UC3 #GreenYellow
+    usecase "Delete" as S_UC4 #GreenYellow
+}
+
+C_UC1 -- S_UC1
+C_UC2 -- S_UC2
+C_UC3 -- S_UC3
+C_UC4 -- S_UC4
+
+database UserList as UserList #Yellow
+S_UC1 -- UserList
+S_UC2 -- UserList
+S_UC3 -- UserList
+S_UC4 -- UserList
+@enduml

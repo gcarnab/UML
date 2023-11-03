@@ -1,0 +1,10 @@
+@startuml Rubrica Sequence
+actor User
+
+User -> Client : start
+Client -> Server : Create User
+Server -> UsersList : Create
+UsersList -> Server : True
+Server --> Client : True
+database UsersList as UsersList #Yellow
+@enduml

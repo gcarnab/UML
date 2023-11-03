@@ -1,0 +1,36 @@
+@startuml Rubrica Class
+class "User" {
+    +Persona(nome, cognome)
+
+    -nome
+    -cognome 
+    
+    +getNome()
+    +setNome()
+    +getCognome()
+    +setiCognome()
+}
+
+Class "Client" {
+    -port
+    -ip
+
+    +getPort()
+    +setPort()
+    +getIp()
+    +setiIp()
+}
+
+Class "Server" {
+    -port
+    -ip
+
+    +getPort()
+    +setPort()
+    +getIp()
+    +setiIp()
+}
+
+User -- Client
+User -- Server
+@enduml
